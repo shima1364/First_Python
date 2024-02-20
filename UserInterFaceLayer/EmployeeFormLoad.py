@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import messagebox as msg
 from tkinter import ttk
 from tkcalendar import DateEntry
+from BusinessLogicLayer.EmployeeCRUD_BLL import EmployeeCRUD_BLL_Class
+from Model.EmployeeModel import EmployeeModel_Class
 
 
 class EmployeeFormClass:
@@ -17,7 +19,24 @@ class EmployeeFormClass:
         employeeFormObject.geometry('+{}+{}'.format(x, y))
 
         def employeeRegister():
-            pass
+            firstName = txtFirstName.get()
+            lastName = txtLastName.get()
+            nationalCode = txtNationalCode.get()
+            sex = intSex.get()
+            maritalStatus = intMaritalStatus.get()
+            hireDate = txtHireDate.get()
+            birthDate = txtBirthDate.get()
+
+            employeeModel_Object = EmployeeModel_Class(fname=firstName, lname=lastName, ncode=nationalCode,
+                                                       bdate=birthDate,
+                                                       sex=sex, hdate=hireDate, mstatus=maritalStatus)
+
+            employeeCRUD_BLL_Object = EmployeeCRUD_BLL_Class()
+            employeeCRUD_BLL_Object.registerEmployee_BLL(employeeModel_Object)
+            resetForm()
+
+
+
 
         def resetForm():
             for widget in employeeFormObject.winfo_children():
