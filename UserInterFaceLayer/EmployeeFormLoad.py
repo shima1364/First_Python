@@ -4,10 +4,12 @@ from tkinter import ttk
 from tkcalendar import DateEntry
 from BusinessLogicLayer.EmployeeCRUD_BLL import EmployeeCRUD_BLL_Class
 from Model.EmployeeModel import EmployeeModel_Class
+from UserInterFaceLayer import MenuBar
 
 
 class EmployeeFormClass:
-
+    def __init__(self):
+        pass
     def EmployeeCRUDFormLoad(self):
         employeeFormObject = Tk()
         employeeFormObject.title('Employee Form')

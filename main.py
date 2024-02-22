@@ -3,8 +3,11 @@ from tkinter import messagebox as msg
 from tkinter import ttk
 import pyodbc
 from UserInterFaceLayer.MainFormModule import MainForm
+from UserInterFaceLayer import MenuBar
 
 loginFormObject = Tk()
+menu_bar = MenuBar(loginFormObject)  # Pass loginFormObject as parent
+loginFormObject.config(menu=menu_bar.menu_bar)
 
 loginFormObject.title('Login form')
 loginFormObject.geometry('300x200')
